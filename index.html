@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DANZ JOKI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+.hero{
+position:relative;
+min-height:100vh;
+padding:40px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+width:120%;
+height:120%;
+background:url("https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1800");
+background-size:cover;
+background-position:center;
+animation:zoom 20s infinite alternate;
+filter:brightness(25%);
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.15);}
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.65);
+}
+
+.container{
+position:relative;
+z-index:2;
+width:100%;
+max-width:850px;
+}
+
+.logo{
+display:block;
+width:130px;
+height:130px;
+margin:auto;
+border-radius:50%;
+border:4px solid #ff0055;
+object-fit:cover;
+box-shadow:0 0 20px #ff0055;
+}
+
+h1{
+text-align:center;
+margin-top:15px;
+color:#ff0055;
+font-size:42px;
+}
+
+.desc{
+text-align:center;
+margin-top:10px;
+color:#ddd;
+}
+
+.card{
+background:rgba(20,20,20,.85);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+border:1px solid #333;
+}
+
+h2{
+margin-bottom:15px;
+color:#ff0055;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:5px;
+}
+
+select,input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:15px;
+}
+
+.total{
+margin-top:15px;
+padding:15px;
+background:#222;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+text-align:center;
+}
+
+.payment{
+background:#003566;
+padding:15px;
+border-radius:10px;
+line-height:30px;
+}
+
+.slot{
+background:#1a1a1a;
+padding:10px;
+border-radius:10px;
+margin:8px 0;
+}
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:10px;
+background:#25D366;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+.testi{
+background:#222;
+padding:10px;
+border-radius:10px;
+margin:10px 0;
+}
+
+.running{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+padding:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+.running span{
+display:inline-block;
+animation:jalan 15s linear infinite;
+color:#ff0055;
+font-weight:bold;
+}
+
+@keyframes jalan{
+from{transform:translateX(100%);}
+to{transform:translateX(-100%);}
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<div class="container">
+
+<img src="c:\Users\HP\Desktop\website\light yagami.jpg" class="logo">
+
+<h1>DANZ JOKI</h1>
+
+<p class="desc">
+Push Rank Aman • Cepat • Trusted
+</p>
+
+<div class="card">
+
+<h2>⭐ Kalkulator Joki</h2>
+
+<p>Harga Joki: <b>Rp1.000 / Bintang</b></p>
+
+<label>Rank Saat Ini</label>
+ss
+<select id="rank">
+<option>Bronze</option>
+<option>Silver</option>
+<option>Gold</option>
+<option>Platinum</option>
+<option>Diamond</option>
+<option>Heroic</option>
+<option>Master</option>
+<option>Grandmaster</option>
+</select>
+
+<label>Target Naik Berapa Bintang?</label>
+
+<input
+type="number"
+id="bintang"
+placeholder="Contoh: 15"
+min="1">
+
+<div class="total" id="totalHarga">
+Total Harga: Rp0
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>💳 Pembayaran GoPay</h2>
+
+<div class="payment">
+Nomor: <b>08318225086</b><br>
+Atas Nama: <b>jidan peramanah</b>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📅 Jadwal Hari Ini</h2>
+
+<div class="slot">🟢 08:00 WIB - Tersedia</div>
+<div class="slot">🟢 10:00 WIB - Tersedia</div>
+<div class="slot">🔴 13:00 WIB - Full</div>
+<div class="slot">🟢 15:00 WIB - Tersedia</div>
+<div class="slot">🟢 19:00 WIB - Tersedia</div>
+
+<label>Pilih Jadwal</label>
+
+<select id="jam">
+<option>08:00 WIB</option>
+<option>10:00 WIB</option>
+<option>15:00 WIB</option>
+<option>19:00 WIB</option>
+</select>
+
+<button class="btn" onclick="orderWA()">
+BOOKING SEKARANG
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>⭐ Testimoni</h2>
+
+<div class="testi">
+⭐⭐⭐⭐⭐<br>
+Proses cepat dan aman.
+</div>
+
+<div class="testi">
+⭐⭐⭐⭐⭐<br>
+Rank naik sesuai target.
+</div>
+
+<div class="testi">
+⭐⭐⭐⭐⭐<br>
+Admin ramah dan terpercaya.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="running">
+<span>
+🔥 PROMO HARI INI - DISKON 10% UNTUK ORDER MINIMAL 50 BINTANG 🔥
+</span>
+</div>
+
+<script>
+
+const bintangInput =
+document.getElementById("bintang");
+
+bintangInput.addEventListener("input",function(){
+
+let jumlah =
+parseInt(this.value) || 0;
+
+let total =
+jumlah * 1000;
+
+document.getElementById("totalHarga").innerHTML =
+"Total Harga: Rp" +
+total.toLocaleString("id-ID");
+
+});
+
+function orderWA(){
+
+let rank =
+document.getElementById("rank").value;
+
+let bintang =
+document.getElementById("bintang").value;
+
+if(!bintang){
+alert("Masukkan jumlah bintang terlebih dahulu");
+return;
+}
+
+let total =
+(bintang * 1000)
+.toLocaleString("id-ID");
+
+let jam =
+document.getElementById("jam").value;
+
+let pesan =
+"Halo Admin Joki FF%0A%0A"+
+"Rank Saat Ini: "+rank+"%0A"+
+"Target Naik: "+bintang+" Bintang%0A"+
+"Total Harga: Rp"+total+"%0A"+
+"Jadwal: "+jam+"%0A%0A"+
+"Saya sudah transfer GoPay dan ingin booking.";
+
+window.open(
+"https://wa.me/6281234567890?text="+pesan,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
