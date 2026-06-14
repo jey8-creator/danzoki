@@ -1,0 +1,2 @@
+# danzoki
+joki ff tepercaya
